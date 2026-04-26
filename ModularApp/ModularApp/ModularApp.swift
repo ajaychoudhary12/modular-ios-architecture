@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct ModularApp: App {
+    init() {
+        AppDIProvider.initialize()
+    }
+    
     var body: some Scene {
         WindowGroup {
             RootView()

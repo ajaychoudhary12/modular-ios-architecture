@@ -7,6 +7,14 @@
 
 import Foundation
 
-public protocol APIService {
-    func request()
+public protocol APIClient {
+    func request(endpoint: String)
+}
+
+public final class APIClientImpl: APIClient {
+    public init() {}
+    
+    public func request(endpoint: String) {
+        print("Requesting \(endpoint)")
+    }
 }

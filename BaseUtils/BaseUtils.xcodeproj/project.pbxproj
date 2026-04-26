@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CF3680492F9E81550012B4EC /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CF3680482F9E81550012B4EC /* Swinject */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CF457A8D2F9E588F004904BE /* BaseUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BaseUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3680492F9E81550012B4EC /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,7 @@
 			);
 			name = BaseUtils;
 			packageProductDependencies = (
+				CF3680482F9E81550012B4EC /* Swinject */,
 			);
 			productName = BaseUtils;
 			productReference = CF457A8D2F9E588F004904BE /* BaseUtils.framework */;
@@ -105,6 +111,9 @@
 			);
 			mainGroup = CF457A832F9E588F004904BE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CF3680472F9E81550012B4EC /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CF457A8E2F9E588F004904BE /* Products */;
 			projectDirPath = "";
@@ -264,7 +273,7 @@
 		CF457A972F9E588F004904BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -299,7 +308,7 @@
 		CF457A982F9E588F004904BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -353,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CF3680472F9E81550012B4EC /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF3680482F9E81550012B4EC /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF3680472F9E81550012B4EC /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF457A842F9E588F004904BE /* Project object */;
 }
