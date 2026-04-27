@@ -11,7 +11,11 @@ public struct ScreenLoaderView: View {
     public init() {}
     
     public var body: some View {
-        ProgressView()
-            .progressViewStyle(CircularProgressViewStyle())
+        ZStack {
+            AppColors.background
+                .ignoresSafeArea()
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: AppColors.textPrimary))
+        }
     }
 }

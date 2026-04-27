@@ -24,14 +24,21 @@ class HomeViewModel: ObservableObject {
     func openProfie() {
         navigator.goToProfile()
     }
-
-    func fetchHome() {
+    
+    func fetchHome() async {
         isLoading = true
-
-        let data = service.fetchHome()
-        let decoded = try? JSONDecoder().decode([HomeItem].self, from: data)
-
-        self.items = decoded ?? []
-        self.isLoading = false
+        
+        do {
+            try await Task.sleep(nanoseconds: 3_000_000_000)
+            
+            let data = service.fetchHome()
+            let decoded = try JSONDecoder().decode([HomeItem].self, from: data)
+            
+            items = decoded
+        } catch {
+            items = []
+        }
+        
+        isLoading = false
     }
 }

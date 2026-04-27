@@ -9,7 +9,6 @@ import SwiftUI
 import DesignSystem
 
 struct HomeView: View {
-    
     @StateObject private var viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -60,8 +59,8 @@ struct HomeView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.fetchHome()
+        .task {
+            await viewModel.fetchHome()
         }
     }
     
