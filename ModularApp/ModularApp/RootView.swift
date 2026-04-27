@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 struct RootView: View {
     var body: some View {
@@ -16,6 +17,9 @@ struct RootView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            Core.Module.shared.moduleInterface.getApiClient().request(endpoint: "https://example.com")
+        }
     }
 }
 

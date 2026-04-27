@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FeatureHome
+import Core
 
 @main
 struct ModularApp: App {
@@ -16,6 +17,7 @@ struct ModularApp: App {
     }
     
     private func setupModules() {
+        Core.Module.initialize(with: AppDIProvider.shared.di)
         FeatureHome.Module.initialize(with: AppDIProvider.shared.di)
     }
     

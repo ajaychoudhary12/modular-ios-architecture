@@ -1,6 +1,6 @@
 //
-//  FeatureHome.swift
-//  FeatureHome
+//  Core.swift
+//  Core
 //
 //  Created by Ajay Choudhary on 26/04/26.
 //
@@ -9,9 +9,7 @@ import BaseUtils
 import Swinject
 
 public final class Module {
-
-    public static var name = "Home"
-
+    public static var name = "Core"
     private static var _shared: Module?
 
     public static var shared: Module {
@@ -22,16 +20,15 @@ public final class Module {
     }
 
     private(set) var di: DI
-    private(set) var moduleInterface: ModuleInterface
+    public private(set) var moduleInterface: ModuleInterface
 
     private init(di: DI) {
         self.di = di
-        
-        di.register(registrations: [
-            HomeRegistration.self,
+        self.di.register(registrations: [
+            CoreRegistration.self,
             ModuleRegistration.self
         ])
-
+        
         self.moduleInterface = di.container.resolve(ModuleInterface.self)!
     }
 

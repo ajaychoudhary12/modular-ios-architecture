@@ -23,4 +23,10 @@ public final class DI {
     public static func child(of parent: DI) -> DI {
         DI(container: Container(parent: parent.container))
     }
+    
+    public func register(registrations: [Registration.Type]) {
+        for registration in registrations {
+          registration.register(in: container)
+        }
+    }
 }

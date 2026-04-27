@@ -12,12 +12,6 @@ public protocol ModuleInterface: AnyObject {
 }
 
 class HomeModuleInterfaceImpl: ModuleInterface {
-    private let di: DI
-    
-    init(di: DI) {
-        self.di = di
-    }
-    
     func openHomePage() {
         
     }

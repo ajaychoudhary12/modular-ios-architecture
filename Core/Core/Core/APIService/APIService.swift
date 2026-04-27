@@ -5,16 +5,20 @@
 //  Created by Ajay Choudhary on 26/04/26.
 //
 
-import Foundation
+import BaseUtils
 
 public protocol APIClient {
     func request(endpoint: String)
 }
 
 public final class APIClientImpl: APIClient {
-    public init() {}
+    var logger: CustomLogger
+    
+    public init(logger: CustomLogger) {
+        self.logger = logger
+    }
     
     public func request(endpoint: String) {
-        print("Requesting \(endpoint)")
+        logger.log("Requesting \(endpoint)")
     }
 }
