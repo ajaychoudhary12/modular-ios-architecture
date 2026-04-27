@@ -24,10 +24,26 @@ struct HomeView: View {
             VStack(alignment: .leading, spacing: Spacing.lg) {
                 
                 // Title
-                Text("Games")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(AppColors.textPrimary)
-                    .padding(.horizontal, Spacing.lg)
+                HStack {
+                    Text("Games")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(AppColors.textPrimary)
+                        .padding(.horizontal, Spacing.lg)
+                    
+                    Spacer()
+                    
+                    Button {
+                        viewModel.openProfie()
+                    } label: {
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .scaledToFit()
+                            .foregroundStyle(AppColors.textPrimary)
+                            .padding(.horizontal, Spacing.lg)
+                    }
+
+                }
                 
                 if viewModel.isLoading {
                     ScreenLoaderView()

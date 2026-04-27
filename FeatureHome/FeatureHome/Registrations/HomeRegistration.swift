@@ -18,7 +18,8 @@ class HomeRegistration: Registration {
         
         container.register(HomeViewModel.self) { resolver in
             let service = resolver.resolve(HomeService.self)!
-            return HomeViewModel(service: service)
+            let navigator = resolver.resolve(HomeNavigator.self)!
+            return HomeViewModel(service: service, navigator: navigator)
         }
     }
 }

@@ -14,9 +14,15 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading = false
 
     private let service: HomeService
+    private let navigator: HomeNavigator
 
-    init(service: HomeService) {
+    init(service: HomeService, navigator: HomeNavigator) {
         self.service = service
+        self.navigator = navigator
+    }
+    
+    func openProfie() {
+        navigator.goToProfile()
     }
 
     func fetchHome() {

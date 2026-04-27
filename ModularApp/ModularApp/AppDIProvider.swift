@@ -21,23 +21,28 @@ final class AppDIProvider {
         
     let di: DI
     
-    private init() {
+    private init(router: AppRouter) {
         let appDI = DI.root()
         let container = appDI.container
-
-        // BaseUtils registrations
-        container.register(CustomLogger.self) { _ in
-            LoggerImpl()
-        }
-
-        container.register(PreferenceManager.self) { _ in
-            PreferenceManagerImpl()
+        
+        appDI.register(registrations: [
+            BaseUtilsRegistration.self,
+            NavigationRegistration.self
+        ])
+        
+        // AppRouter Registration
+        container.register(AppRouter.self) { _ in router }
+            .inObjectScope(.container) // Enables shared access
+        
+        container.register(HomeNavigator.self) { resolver in
+            let router = resolver.resolve(AppRouter.self)!
+            return HomeNavigatorImpl(router: router)
         }
 
         self.di = appDI
     }
     
-    static func initialize() {
-        _shared = AppDIProvider()
+    static func initialize(router: AppRouter) {
+        _shared = AppDIProvider(router: router)
     }
 }
