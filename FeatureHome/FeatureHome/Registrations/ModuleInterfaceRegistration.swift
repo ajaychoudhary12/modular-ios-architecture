@@ -8,7 +8,7 @@
 import BaseUtils
 import Swinject
 
-class ModuleRegistration: Registration {
+class ModuleInterfaceRegistration: Registration {
     static func register(in container: Container) {
         container.register(ModuleInterface.self) { _ in
             HomeModuleInterfaceImpl()

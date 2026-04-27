@@ -6,6 +6,7 @@
 //
 
 import BaseUtils
+import Swinject
 
 public protocol ModuleInterface: AnyObject {
     func openHomePage()
@@ -13,6 +14,7 @@ public protocol ModuleInterface: AnyObject {
 
 class HomeModuleInterfaceImpl: ModuleInterface {
     func openHomePage() {
-        
+        let service = Module.shared.di.container.resolve(HomeService.self)!
+        service.fetchHome()
     }
 }

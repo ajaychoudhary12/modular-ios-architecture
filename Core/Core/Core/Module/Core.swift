@@ -26,14 +26,13 @@ public final class Module {
         self.di = di
         self.di.register(registrations: [
             CoreRegistration.self,
-            ModuleRegistration.self
+            ModuleInterfaceRegistration.self
         ])
         
         self.moduleInterface = di.container.resolve(ModuleInterface.self)!
     }
 
     public static func initialize(with parentDI: DI) {
-        let childDi = DI.child(of: parentDI)
-        _shared = Module(di: childDi)
+        _shared = Module(di: parentDI)
     }
 }

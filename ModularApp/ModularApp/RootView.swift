@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Core
+import FeatureHome
 
 struct RootView: View {
     var body: some View {
@@ -19,6 +20,7 @@ struct RootView: View {
         .padding()
         .onAppear {
             Core.Module.shared.moduleInterface.getApiClient().request(endpoint: "https://example.com")
+            FeatureHome.Module.shared.moduleInterface.openHomePage()
         }
     }
 }

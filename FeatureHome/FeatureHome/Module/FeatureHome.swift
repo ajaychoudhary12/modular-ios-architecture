@@ -22,14 +22,14 @@ public final class Module {
     }
 
     private(set) var di: DI
-    private(set) var moduleInterface: ModuleInterface
+    public private(set) var moduleInterface: ModuleInterface
 
     private init(di: DI) {
         self.di = di
         
         di.register(registrations: [
             HomeRegistration.self,
-            ModuleRegistration.self
+            ModuleInterfaceRegistration.self
         ])
 
         self.moduleInterface = di.container.resolve(ModuleInterface.self)!

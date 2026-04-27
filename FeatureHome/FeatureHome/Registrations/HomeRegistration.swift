@@ -7,21 +7,13 @@
 
 import BaseUtils
 import Swinject
+import Core
 
 class HomeRegistration: Registration {
-    static func register(in container: Container) {        
-        container.register(HomeService.self) { _ in
-            HomeServiceImpl()
+    static func register(in container: Container) {
+        container.register(HomeService.self) { resolver in
+            let apiClient = resolver.resolve(APIClient.self)!
+            return HomeServiceImpl(apiClient: apiClient)
         }
-    }
-}
-
-protocol HomeService {
-    func fetchHome()
-}
-
-class HomeServiceImpl: HomeService {
-    func fetchHome() {
-        
     }
 }
