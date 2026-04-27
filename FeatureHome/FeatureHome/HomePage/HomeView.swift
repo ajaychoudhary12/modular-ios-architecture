@@ -32,7 +32,7 @@ struct HomeView: View {
                     Spacer()
                     
                     Button {
-                        viewModel.openProfie()
+                        viewModel.openProfile()
                     } label: {
                         Image(systemName: "person.crop.circle")
                             .resizable()

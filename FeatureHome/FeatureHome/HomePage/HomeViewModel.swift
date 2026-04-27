@@ -21,7 +21,7 @@ class HomeViewModel: ObservableObject {
         self.navigator = navigator
     }
     
-    func openProfie() {
+    func openProfile() {
         navigator.goToProfile()
     }
     

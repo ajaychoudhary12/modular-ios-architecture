@@ -11,7 +11,7 @@ import Swinject
 
 public final class Module {
 
-    public static var name = "Home"
+    public static var name = "Profile"
 
     private static var _shared: Module?
 
