@@ -11,17 +11,10 @@ import FeatureHome
 
 struct RootView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-        .onAppear {
-            Core.Module.shared.moduleInterface.getApiClient().request(endpoint: "https://example.com")
-            FeatureHome.Module.shared.moduleInterface.openHomePage()
-        }
+        FeatureHome.Module.shared.moduleInterface.makeHomeView()
+            .onAppear {
+                Core.Module.shared.moduleInterface.getApiClient().request(endpoint: "https://example.com")
+            }
     }
 }
 

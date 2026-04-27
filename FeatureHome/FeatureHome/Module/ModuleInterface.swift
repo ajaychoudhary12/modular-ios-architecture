@@ -7,14 +7,15 @@
 
 import BaseUtils
 import Swinject
+import SwiftUI
 
 public protocol ModuleInterface: AnyObject {
-    func openHomePage()
+    func makeHomeView() -> AnyView
 }
 
 class HomeModuleInterfaceImpl: ModuleInterface {
-    func openHomePage() {
-        let service = Module.shared.di.container.resolve(HomeService.self)!
-        service.fetchHome()
+    func makeHomeView() -> AnyView {
+        let viewModel = Module.shared.di.container.resolve(HomeViewModel.self)!
+        return AnyView(HomeView(viewModel: viewModel))
     }
 }

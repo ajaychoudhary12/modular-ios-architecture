@@ -15,5 +15,10 @@ class HomeRegistration: Registration {
             let apiClient = resolver.resolve(APIClient.self)!
             return HomeServiceImpl(apiClient: apiClient)
         }
+        
+        container.register(HomeViewModel.self) { resolver in
+            let service = resolver.resolve(HomeService.self)!
+            return HomeViewModel(service: service)
+        }
     }
 }
