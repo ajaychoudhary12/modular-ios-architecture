@@ -34,9 +34,6 @@ final class AppDIProvider {
             PreferenceManagerImpl()
         }
 
-        // Initialize feature modules
-        FeatureHome.Module.initialize(with: appDI)
-
         self.di = appDI
     }
     
