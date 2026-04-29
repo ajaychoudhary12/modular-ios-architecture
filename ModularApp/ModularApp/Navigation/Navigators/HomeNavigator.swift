@@ -6,6 +6,7 @@
 //
 
 import FeatureHome
+import Core
 
 final class HomeNavigatorImpl: HomeNavigator {
     private let router: AppRouter
@@ -14,7 +15,7 @@ final class HomeNavigatorImpl: HomeNavigator {
         self.router = router
     }
 
-    func goToProfile() {
-        router.navigate(.profile)
+    func goToProfile(input: ProfileRouteInput) {
+        router.navigate(.profile(input))
     }
 }

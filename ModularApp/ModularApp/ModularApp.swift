@@ -37,8 +37,8 @@ struct ModularApp: App {
                         switch route {
                         case .home:
                             FeatureHome.Module.shared.moduleInterface.makeHomeView()
-                        case .profile:
-                            FeatureProfile.Module.shared.moduleInterface.makeProfileView()
+                        case .profile(let input):
+                            FeatureProfile.Module.shared.moduleInterface.makeProfileView(input: input)
                         }
                     }
                     .onAppear {

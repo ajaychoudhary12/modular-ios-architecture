@@ -7,8 +7,11 @@
 
 import SwiftUI
 import DesignSystem
+import Core
 
 struct ProfileView: View {
+    let input: ProfileRouteInput
+    
     var body: some View {
         ZStack {
             AppColors.background
@@ -40,18 +43,20 @@ struct ProfileView: View {
     
     private var profileHeader: some View {
         HStack(spacing: Spacing.md) {
-            Image("profileImage")
+            Image(input.avatarName ?? "profileImage")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: Spacing.xs) {
-                Text("Ajay Choudhary")
-                    .font(.headline)
-                    .foregroundColor(AppColors.textPrimary)
+                if let displayName = input.displayName {
+                    Text(displayName)
+                        .font(.headline)
+                        .foregroundColor(AppColors.textPrimary)
+                }
                 
-                Text("Pro Gamer")
+                Text(input.userID)
                     .font(.subheadline)
                     .foregroundColor(AppColors.textSecondary)
             }

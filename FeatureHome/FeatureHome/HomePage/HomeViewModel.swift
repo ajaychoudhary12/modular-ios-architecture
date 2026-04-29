@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Core
 
 class HomeViewModel: ObservableObject {
 
@@ -22,7 +23,13 @@ class HomeViewModel: ObservableObject {
     }
     
     func openProfile() {
-        navigator.goToProfile()
+        navigator.goToProfile(
+            input: ProfileRouteInput(
+                userID: "_Ajay_12",
+                displayName: "Ajay Choudhary",
+                avatarName: "profileImage"
+            )
+        )
     }
     
     func fetchHome() async {

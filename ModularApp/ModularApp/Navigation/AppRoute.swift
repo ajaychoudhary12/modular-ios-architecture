@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Core
 
 enum AppRoute: Hashable {
     case home
-    case profile
+    case profile(ProfileRouteInput)
 }
